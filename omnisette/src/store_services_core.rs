@@ -273,9 +273,9 @@ impl ADIProxy for StoreServicesCoreADIProxy<'_> {
     }
 
     fn is_machine_provisioned(&self, ds_id: i64) -> bool {
-        let ret = (self.adi_get_login_code)(ds_id),
-        err => Err(ADIError::resolve(ret)),
-        ret == 0
+        let ret = (self.adi_get_login_code)(ds_id);
+        err => Err(ADIError::resolve(ret));
+        return (ret == 0)
     }
 
     fn request_otp(&self, ds_id: i64) -> Result<RequestOTPData, ADIError> {
